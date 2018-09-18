@@ -1,9 +1,17 @@
 import axios from 'axios'
+import RequestUtils from '../utils/RequestUtils'
 import * as types from './mutation-types.js'
 let num = 0;
 
 /* 异步操作 */
 export default {
+  async getUserDetail({commit, state}, param) {
+		let showLoadingFlag,
+			userDetail = {};
+		commit(types.GET_USER_DETAIL, {userDetail, showLoadingFlag: true});
+    userDetail = await RequestUtils.get(param)
+    commit(types.GET_USER_DETAIL, {userDetail, showLoadingFlag: false});
+	},
 	getRecommendList({commit, state}) {
 		let showLoadingFlag,
 			list = [];

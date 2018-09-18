@@ -7,6 +7,10 @@ export default {
 			state[payload.listType].push(payload.newList)
 		}
 	},
+	[TYPES.GET_USER_DETAIL](state, payload) {
+		state.showLoading = payload.showLoadingFlag;
+		state.userDetail = payload.userDetail;
+	},
 	[TYPES.GET_RECOMMEND_LIST](state, payload) {
 		state.showLoading = payload.showLoadingFlag;
 		state.recommendList = payload.list;
