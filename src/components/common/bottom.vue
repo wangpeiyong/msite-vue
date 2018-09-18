@@ -69,7 +69,7 @@
   .home_box .box-item:last-child { border-right: none; }
 
   /*20150408*/
-  .home_box { background-color: #ffffff; }
+  .home_box { background-color: #ededed; }
   .bottom_nav { height: 45px; padding: 20px 10px 10px 10px; }
   .bottom_nav li { float: left; width: 20%; text-align: center; height: 45px; position: relative; }
   .bottom_nav a { height: 45px; display: block; margin: 0 auto; position: relative; color: #686868; font-size: 12px; }

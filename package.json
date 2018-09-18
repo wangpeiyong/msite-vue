@@ -12,6 +12,7 @@
     "axios": "^0.15.3",
     "js-cookie": "^2.2.0",
     "moment": "^2.22.2",
+    "swipe": "^1.7.7",
     "underscore": "^1.8.3",
     "vue": "^2.2.2",
     "vue-awesome-swiper": "^2.4.0",

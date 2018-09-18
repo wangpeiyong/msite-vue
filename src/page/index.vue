@@ -2,7 +2,7 @@
   <div class="app-recommend">
     <loading v-show="showLoading"></loading>
     <loading v-show="showLoadingMore"></loading>
-    <appDownload></appDownload>
+    <!--<appDownload></appDownload>-->
     <sowingMap></sowingMap>
     <login></login>
     <search></search>
@@ -18,7 +18,7 @@
 <script>
   import _ from 'underscore'
   import {mapState, mapActions} from 'vuex'
-  import Loading from '../components/loading.vue'
+  import Loading from '../components/common/loading.vue'
   import Bottom from '../components/common/bottom.vue'
   import Search from '../components/index/search.vue'
   import SowingMap from '../components/index/sowingMap.vue'

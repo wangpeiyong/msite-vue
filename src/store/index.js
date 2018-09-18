@@ -11,10 +11,6 @@ const state = {
 	recommendList: [],
 	showLoading: false,
 	showLoadingMore: false,
-	sliders: [],
-	picList: [],
-	jokeList: [],
-	entertainmentList: []
 }
 
 /* Store实例 */
