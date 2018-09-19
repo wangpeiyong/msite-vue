@@ -40,7 +40,6 @@ export default {
           return status >= 200 && status < 500; // default
         }
       })
-
       return Promise.resolve(res)
     } catch (err) {
       return handleError(err, params)

@@ -7,6 +7,7 @@ import {
 
 function handle(result) {
   if (result.status >= 200 && result.status <= 204) { // 请求成功
+    result = result.data
     if (result.statusCode == 200) {
       return Promise.resolve(result.data)
     } else if (result.statusCode == 208) {

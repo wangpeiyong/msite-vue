@@ -1,43 +1,48 @@
 <template>
   <div class="indexSearch">
     <div class="content">
-      <span>输入关键字/职位/公司搜索</span>
-      <b>搜 索</b>
+      <span><input placeholder="输入关键字/职位/公司搜索" v-model="keyword"></input></span>
+      <button @click="doSearch">搜 索</button>
     </div>
   </div>
 
 </template>
 
 <script>
-    import {mapState, mapActions} from 'vuex'
-    export default {
-        name: 'search',
-        data() {
-            return {
-            }
-        },
-        computed: {
-            ...mapState([
-            ])
-        },
-        mounted() {
-        },
-        methods: {
-            ...mapActions([
-            ])
-        },
-        components: {
-        }
+  import {mapState, mapActions} from 'vuex'
+  export default {
+    name: 'search',
+    data() {
+      return {
+        keyword: ''
+      }
+    },
+    computed: {
+      ...mapState([
+      ])
+    },
+    mounted() {
+    },
+    methods: {
+      ...mapActions([
+      ]),
+      doSearch() {
+        this.$router.push({ path: 'searchResult', query: { keyword: this.keyword}})
+      }
+    },
+    components: {
     }
+  }
 </script>
 <style>
   /*首页搜索*/
   .indexSearch { height: 60px; background-color: #fff; overflow: hidden; }
-  .indexSearch .content { margin: 20px 12px 0px 12px; height: 38px; line-height: 38px; color: #c8c8c8; font-size: 15px; border-radius: 50px; position: relative;background:#f0f0f0; }
+  .indexSearch .content { margin: 20px 12px 0px 12px; height: 38px; line-height: 38px; color: #c8c8c8; font-size: 15px; border-radius: 50px; position: relative;border: solid 1px #f0f0f0; }
   .indexSearch .content.search {margin:10px;background:#fff;border:1px solid #d2d2d2;border-radius: 0px; }
   .indexSearch .content span { display: block; margin: 0 14px; }
-  .indexSearch .content b { width: 70px; height: 38px; line-height: 38px; color: #fff; font-size: 15px; text-align: center; border-radius:0px 50px 50px 0px; position: absolute; right: 0px; top: 0px; background-color: #42beff; }
-  .indexSearch .content b.search { width: 44px; height: 28px; background: url("//img09.zhaopin.cn/2012/other/mobile/m/combine_icon16312.png") no-repeat -235px -115px; top: 5px; border-radius: 0px; }
+  .indexSearch .content input {width: 100%; height: 100%; border: 0px; }
+  .indexSearch .content button { width: 70px; height: 38px; line-height: 38px; color: #fff; font-size: 15px; text-align: center; border-radius:0px 50px 50px 0px; position: absolute; right: 0px; top: 0px; background-color: #42beff; }
+  .indexSearch .content button.search { width: 44px; height: 28px; background: url("//img09.zhaopin.cn/2012/other/mobile/m/combine_icon16312.png") no-repeat -235px -115px; top: 5px; border-radius: 0px; }
   #indexSearchContent { width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: 1000; background-color: #fff; display: none; }
   .indexSearchContentTop { height: 30px; padding: 10px 10px 10px 15px; background-color: #f8f8f8; line-height: 30px; position: relative; }
   .indexSearchContentTop .close { width: 26px; background: url("//img09.zhaopin.cn/2012/other/mobile/m/4-2_indexSearch.png") no-repeat left center; background-size: 11px 20px; height: 30px; position: absolute; left: 15px; top: 10px; z-index: 200; }

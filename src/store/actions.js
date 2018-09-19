@@ -5,6 +5,13 @@ let num = 0;
 
 /* 异步操作 */
 export default {
+  async getPositionDetail({commit, state}, param) {
+		let showLoadingFlag,
+			positionDetail = {};
+		commit(types.GET_POSITION_DETAIL, {positionDetail, showLoadingFlag: true});
+    positionDetail = await RequestUtils.get(param)
+    commit(types.GET_POSITION_DETAIL, {positionDetail, showLoadingFlag: false});
+	},
   async getUserDetail({commit, state}, param) {
 		let showLoadingFlag,
 			userDetail = {};

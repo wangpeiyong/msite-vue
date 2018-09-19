@@ -1,3 +1,3 @@
 export default {
-	recommendList: state => state.recommendList,
+	positionDetail: state => state.positionDetail,
 }

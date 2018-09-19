@@ -8,7 +8,7 @@ Vue.use(Vuex);
 
 /* 项目全局State */
 const state = {
-	recommendList: [],
+	positionDetail: {},
 	showLoading: false,
 	showLoadingMore: false,
 }
