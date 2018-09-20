@@ -1,64 +1,117 @@
 <template>
-  <div class="shouye" id="j_focus">
-    <div class="swipeboxpic">
-
-      <a class="__ga__index_GuideEvent_001" rel="nofollow" href="/account/indexup">
-        <img src="//img09.zhaopin.cn/2012/other/mobile/m/index_16808.png"/>
+  <div class="header-ad">
+    <li class="header-li" :style="trackStyles" ref="liA">
+      <a class="header-a" v-for="data in slidData" :key="data.key">
+        <img class="header-img" :src="data.imageUrl"/>
       </a>
-      <a target="_blank" href="http://t.cn/RmvoBVP">
-        <img src="//img09.zhaopin.com/2012/other/mobile/banner/suo-im180301.jpg" />
-      </a>
-      <a href="https://cnt.zhaopin.com/Market/whole_counter.jsp?sid=121128281&site=mbanner&url=http://special.zhaopin.com/2017/sh/xslz071999w/">
-        <img src="//img09.zhaopin.cn/2012/other/mobile/banner/xslz071999w.jpg" />
-      </a>
-      <a target="_blank" rel="nofollow" href="https://special.zhaopin.com/2018/bj/nxlt020182/">
-        <img src="//img09.zhaopin.com/2012/other/mobile/banner/nxlt020182.jpg" />
-      </a>
-      <a target="_blank" rel="nofollow" href="//m.zhaopin.com/select.html?utm_source=zhuanti&utm_medium=cpc&utm_campaign=zhilian&utm_content=xuanze&utm_term=xuanzem">
-        <img src="//img09.zhaopin.cn/2012/other/mobile/banner/xuanzem.jpg"/>
-      </a>
+    </li>
+    <div class="header-dots">
+      <template v-for="n in length">
+        <div class="list-dot" :class="{[`active`] : index === n-1 }"></div>
+      </template>
     </div>
   </div>
-
 </template>
-
 <script>
-    import {mapState, mapActions} from 'vuex'
-    import Swipe from 'swipe'
-    export default {
-        name: 'sowingMap',
-        data() {
-            return {
-            }
-        },
-        computed: {
-            ...mapState([
-            ])
-        },
-        mounted() {
-          let time;
-          window.indexAppWrap = new Swipe(document.getElementById('j_focus'), {
-            auto: 3000,
-            disableScroll: false,
-            callback: function () {
-              console.log(time)
-              clearTimeout(time);
-              time = setTimeout(function () { indexAppWrap.next() }, 3000);
-            }
-          });
-        },
-        methods: {
-            ...mapActions([
-            ])
-        },
-        components: {
+  export default {
+    name: 'sowingMap',
+    data () {
+      return {
+        slidData: [],
+        index: 0,
+        length: 0,
+        liWidth: 0
+      }
+    },
+    mounted () {
+      this.getSlideData()
+    },
+    watch: {
+      slidData (slidData) {
+        this.clock()
+        this.liWidth = this.$refs.liA.getBoundingClientRect().width
+      }
+    },
+    computed: {
+      trackStyles () {
+        let trackOffset = -this.index * this.liWidth
+        return {
+          transform: `translate3d(${trackOffset}px, 0px, 0px)`
         }
+      }
+    },
+    methods: {
+      // 获取滑动图片的数据
+      getSlideData () {
+        const pictures = ['//img09.zhaopin.cn/2012/other/mobile/m/index_16808.png',
+          '//img09.zhaopin.com/2012/other/mobile/banner/suo-im180301.jpg',
+          '//img09.zhaopin.cn/2012/other/mobile/banner/xslz071999w.jpg',
+          '//img09.zhaopin.com/2012/other/mobile/banner/nxlt020182.jpg',
+          '//img09.zhaopin.cn/2012/other/mobile/banner/xuanzem.jpg'
+        ]
+        this.slidData = pictures.map((v, index) => {
+          return {
+            key: index,
+            imageUrl: v,
+          }
+        })
+        this.length = this.slidData.length
+      },
+      clock () {
+        let length = this.length
+        let self = this
+        if (this.length > 0) {
+          setInterval(function changeIndex () {
+            if (self.index === length - 1) {
+              self.index = 0
+            } else {
+              self.index += 1
+            }
+          }, 3000)
+        }
+      }
     }
+  }
 </script>
-<style>
-  .shouye{width: 100%;background-color: #fff;}
-
-  #j_focus { position: relative; overflow: hidden; z-index: 109; }
-  #j_focus a { float: left; min-height: 40px; position: relative; }
-  #j_focus a img { display: block; width: 100%; }
+<style scope lang="sass">
+  .header-ad
+    height: px2rem(360px);
+    overflow-x: hidden;
+    position: relative;
+    li
+      white-space: nowrap;
+      width: 100%;
+      list-style: none;
+      transition-property: transform;
+      transition-property: transform;
+      transition-timing-function: cubic-bezier(0, 0, 0.25, 1);
+      transition-duration: 400ms;
+      .header-a
+        display: inline-block;
+        z-index: -3;
+        overflow: hidden;
+        width: 100%;
+        height: px2rem(360px);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        .header-img
+          width: 100%
+    .header-dots
+      position: absolute;
+      top: px2rem(210px);
+      left: 0;
+      width: 100%;
+      text-align: center;
+      .list-dot
+        border: solid 1px #fff;
+        background: #fff;
+        border-radius: 100%;
+        width: px2rem(15px);
+        height: px2rem(15px);
+        display: inline-block;
+        margin: 0 px2rem(6px);
+      .list-dot.active
+        border: solid 1px #06c1ae;
+        background: #06c1ae;
 </style>
