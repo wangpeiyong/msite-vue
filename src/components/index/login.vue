@@ -2,7 +2,8 @@
     <div class="">
       <section class="j_searchTop">
         <a class="zhilianLogo" href="/"></a>
-        <a class="position" href="/searchjob/selectcity">
+
+        <a class="position" @click="doChooseCity">
           <img class="icon right" width="7" src="//img09.zhaopin.cn/2012/other/mobile/m/4-2_cityArrow.png">
           <i></i>
           <span class="text">北京</span>
@@ -18,6 +19,8 @@
 
 <script>
     import {mapState, mapActions} from 'vuex'
+    import City from '../city/index'
+
     export default {
         name: 'login',
         data() {
@@ -33,11 +36,16 @@
         methods: {
           ...mapActions([
           ]),
-          doLogin: function () {
+          doLogin () {
             this.$router.push({path: 'login', query: {redirect: window.location.href}})
-          }
+          },
+          doChooseCity () {
+            let scrollLetter = '北京'
+            this.$router.push({path: 'cityChoose', query: {scrollLetter}})
+          },
         },
         components: {
+          City
         }
     }
 </script>

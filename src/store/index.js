@@ -11,6 +11,9 @@ const state = {
 	positionDetail: {},
 	showLoading: false,
 	showLoadingMore: false,
+  isShowQuerySelector: false,
+  isShowCityBox: true,
+  lettersConfig: []
 }
 
 /* Store实例 */
