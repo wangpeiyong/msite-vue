@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/page/index'
+import Login from '@/page/login'
 import SearchResult from '@/page/searchResult'
 
 Vue.use(Router)
@@ -16,6 +17,11 @@ export default new Router({
             path: '/index',
             name: 'Index',
             component: Index
+        },
+        {
+            path: '/login',
+            name: 'Login',
+            component: Login
         },
         {
             path: '/searchResult',

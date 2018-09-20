@@ -10,7 +10,7 @@
 
         <a class="information" rel="nofollow" onclick="MessageCenterEvent();"><b class="newNumber"></b></a>
 
-        <a style="width: 64px;height: 21px;float: right;margin: 13px 10px 0 0;font-size: 14px;color: #fff;" rel="nofollow" onclick="userLogin(true);zhucedenglu();">注册/登录</a>
+        <a style="width: 64px;height: 21px;float: right;margin: 13px 10px 0 0;font-size: 14px;color: #fff;" rel="nofollow" @click="doLogin">注册/登录</a>
       </section>
 
     </div>
@@ -31,8 +31,11 @@
         mounted() {
         },
         methods: {
-            ...mapActions([
-            ])
+          ...mapActions([
+          ]),
+          doLogin: function () {
+            this.$router.push({path: 'login', query: {redirect: window.location.href}})
+          }
         },
         components: {
         }
