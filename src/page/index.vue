@@ -61,3 +61,6 @@
     }
   }
 </script>
+<style>
+  body{background: #f0f0f0;}
+</style>

@@ -37,10 +37,10 @@
 <style>
   /*首页搜索*/
   .indexSearch { height: 60px; background-color: #fff; overflow: hidden; }
-  .indexSearch .content { margin: 20px 12px 0px 12px; height: 38px; line-height: 38px; color: #c8c8c8; font-size: 15px; border-radius: 50px; position: relative;border: solid 1px #f0f0f0; }
+  .indexSearch .content { margin: 20px 12px 0px 12px; height: 38px; line-height: 38px; color: #c8c8c8; font-size: 15px; border-radius: 50px; position: relative;border: solid 1px #f0f0f0; background: #f0f0f0;}
   .indexSearch .content.search {margin:10px;background:#fff;border:1px solid #d2d2d2;border-radius: 0px; }
   .indexSearch .content span { display: block; margin: 0 14px; }
-  .indexSearch .content input {width: 100%; height: 100%; border: 0px; }
+  .indexSearch .content input {width: 100%; height: 100%; border: 0px; background: #f0f0f0;}
   .indexSearch .content button { width: 70px; height: 38px; line-height: 38px; color: #fff; font-size: 15px; text-align: center; border-radius:0px 50px 50px 0px; position: absolute; right: 0px; top: 0px; background-color: #42beff; }
   .indexSearch .content button.search { width: 44px; height: 28px; background: url("//img09.zhaopin.cn/2012/other/mobile/m/combine_icon16312.png") no-repeat -235px -115px; top: 5px; border-radius: 0px; }
   #indexSearchContent { width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: 1000; background-color: #fff; display: none; }

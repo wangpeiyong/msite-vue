@@ -81,8 +81,7 @@
     }
 </script>
 <style>
-  MyOperating{font-family:'Microsoft YaHei';width:auto;padding:16px 10px 5px 10px;margin-bottom:10px;background-color: #fff;
-    overflow: hidden;border-bottom:1px solid #e6e6e6;}
+  .MyOperating{font-family:'Microsoft YaHei';width:auto;padding:16px 10px 5px 10px;margin-bottom:10px;background-color: #fff;overflow: hidden;border-bottom:1px solid #e6e6e6;}
   .j_boxe{float:left;width:25%;text-align:center;position:relative;}
   .MyOperating a{display:block;width:64px;height:auto;margin:0 auto;line-height:20px;text-align:center;}
   .MyOperating a img{width: 40px;height: 40px;margin: auto;}
