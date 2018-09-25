@@ -6,10 +6,9 @@ let num = 0;
 /* 异步操作 */
 export default {
   async getPositionList({commit, state}, param) {
-		let showLoadingFlag,
-      positionList = {};
-		commit(types.GET_POSITION_LIST, {positionList, showLoadingFlag: true});
-    positionList = await RequestUtils.get(param)
+		let showLoadingFlag;
+		commit(types.GET_POSITION_LIST, {showLoadingFlag: true});
+    let positionList = await RequestUtils.get(param)
     commit(types.GET_POSITION_LIST, {positionList, showLoadingFlag: false});
 	},
   async getUserDetail({commit, state}, param) {

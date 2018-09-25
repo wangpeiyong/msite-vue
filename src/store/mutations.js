@@ -3,7 +3,9 @@ import * as TYPES from './mutation-types.js'
 export default {
 	[TYPES.GET_POSITION_LIST](state, payload) {
 		state.showLoading = payload.showLoadingFlag;
-		state.positionList = payload.positionList;
+		if (payload.positionList) {
+		  state.positionList = payload.positionList;
+    }
 	},
 	[TYPES.GET_USER_DETAIL](state, payload) {
 		state.showLoading = payload.showLoadingFlag;
