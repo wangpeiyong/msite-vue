@@ -26,11 +26,6 @@
     mounted() {
       this.redirect = this.$route.query.redirect
       console.log(this.redirect)
-      // let param= {/
-      //   url: '/position/search',
-      //   data: {S_SOU_FULL_INDEX: this.keyword}
-      // }
-      // this.getPositionDetail(param);
     },
     components: {
       Loading,

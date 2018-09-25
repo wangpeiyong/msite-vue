@@ -1,9 +1,9 @@
 import * as TYPES from './mutation-types.js'
 
 export default {
-	[TYPES.GET_POSITION_DETAIL](state, payload) {
+	[TYPES.GET_POSITION_LIST](state, payload) {
 		state.showLoading = payload.showLoadingFlag;
-		state.positionDetail = payload.positionDetail;
+		state.positionList = payload.positionList;
 	},
 	[TYPES.GET_USER_DETAIL](state, payload) {
 		state.showLoading = payload.showLoadingFlag;
@@ -11,7 +11,7 @@ export default {
 	},
 	[TYPES.GET_RECOMMEND_LIST](state, payload) {
 		state.showLoading = payload.showLoadingFlag;
-		state.recommendList = payload.list;
+		state.positionList = payload.list;
 	},
   [TYPES.CITY] (state, city) {
     state.city = city

@@ -5,12 +5,12 @@ let num = 0;
 
 /* 异步操作 */
 export default {
-  async getPositionDetail({commit, state}, param) {
+  async getPositionList({commit, state}, param) {
 		let showLoadingFlag,
-			positionDetail = {};
-		commit(types.GET_POSITION_DETAIL, {positionDetail, showLoadingFlag: true});
-    positionDetail = await RequestUtils.get(param)
-    commit(types.GET_POSITION_DETAIL, {positionDetail, showLoadingFlag: false});
+      positionList = {};
+		commit(types.GET_POSITION_LIST, {positionList, showLoadingFlag: true});
+    positionList = await RequestUtils.get(param)
+    commit(types.GET_POSITION_LIST, {positionList, showLoadingFlag: false});
 	},
   async getUserDetail({commit, state}, param) {
 		let showLoadingFlag,

@@ -13,7 +13,7 @@ function handle(result) {
     } else if (result.statusCode == 208) {
       // need relogin TODO
     } else {
-      return Promise.reject(result.data.message)
+      return Promise.reject(result.data.statusDescription)
     }
   }
   if (result.status > 204) { // 请求失败

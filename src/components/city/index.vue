@@ -14,7 +14,7 @@
           </div>
           <div class="city-search-result-empty" style="display: none;">
             未找到相关
-            <span class="city-color-weight">“城市／行政区／景点”</span>
+            <span class="city-color-weight">“城市／行政区”</span>
             ，请修改后重试
           </div>
         </div>

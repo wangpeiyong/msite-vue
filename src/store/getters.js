@@ -1,3 +1,3 @@
 export default {
-	positionDetail: state => state.positionDetail,
+	positionList: state => state.positionList,
 }

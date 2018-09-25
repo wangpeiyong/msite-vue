@@ -8,12 +8,12 @@ Vue.use(Vuex);
 
 /* 项目全局State */
 const state = {
-	positionDetail: {},
+	positionList: {},
 	showLoading: false,
 	showLoadingMore: false,
   isShowQuerySelector: false,
   isShowCityBox: true,
-  lettersConfig: []
+  lettersConfig: [],
 }
 
 /* Store实例 */

@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Index from '@/page/index'
 import Login from '@/page/login'
 import SearchResult from '@/page/searchResult'
-import CityChoose from '@/page/cityChoose'
+import City from '@/page/city'
 
 Vue.use(Router)
 
@@ -30,9 +30,9 @@ export default new Router({
             component: SearchResult
         },
         {
-            path: '/cityChoose',
-            name: 'CityChoose',
-            component: CityChoose
+            path: '/city',
+            name: 'City',
+            component: City
         },
     ]
 })
