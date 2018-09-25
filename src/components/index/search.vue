@@ -10,11 +10,12 @@
 
 <script>
   import {mapState, mapActions} from 'vuex'
+  import * as types from '../../store/mutation-types.js'
   export default {
     name: 'search',
     data() {
       return {
-        keyword: ''
+        keyword : ''
       }
     },
     computed: {
@@ -22,12 +23,19 @@
       ])
     },
     mounted() {
+      const kw = this.$route.query.keyword || ''
+      this.keyword = kw
     },
     methods: {
       ...mapActions([
       ]),
       doSearch() {
-        this.$router.push({ path: 'searchResult', query: { keyword: this.keyword}})
+        const curPath = this.$route.path
+        if ('/searchResult' == curPath) {
+          this.$parent.setKeyword(this.keyword)
+        } else {
+          this.$router.push({ path: 'searchResult', query: { keyword: this.keyword}})
+        }
       }
     },
     components: {

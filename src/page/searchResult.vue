@@ -1,6 +1,7 @@
 <template>
-  <div class="app-recommend">
+  <div class="app-search">
     <loading v-show="showLoading"></loading>
+    <search :keyword="keyword"></search>
     <position-list :positionList="positionList ? positionList.list : []"></position-list>
     <page :nowPageOnOff="nowPageOnOff" :total="positionList ? positionList.count : 0" :max="getMaxPage(positionList)" @changePage="changePage"></page>
   </div>
@@ -11,6 +12,7 @@
   import Loading from '../components/common/loading.vue'
   import PositionList from '../components/position/positionList.vue'
   import Page from '../components/common/page.vue'
+  import Search from '../components/index/search.vue'
   export default {
     data: function() {
       return {
@@ -43,8 +45,11 @@
       },
       getMaxPage(pl) {
         return Math.ceil(pl.count / this.list.pageSize)
+      },
+      setKeyword(kw) {
+        this.keyword = kw
+        this.getPositions()
       }
-
     },
     mounted() {
       this.keyword = this.$route.query.keyword
@@ -59,6 +64,7 @@
       Loading,
       PositionList,
       Page,
+      Search,
     }
   }
 </script>
