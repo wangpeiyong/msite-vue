@@ -41,7 +41,7 @@
           },
           doChooseCity () {
             let scrollLetter = '北京'
-            this.$router.push({path: 'cityChoose', query: {scrollLetter}})
+            this.$router.push({path: 'city', query: {scrollLetter}})
           },
         },
         components: {
