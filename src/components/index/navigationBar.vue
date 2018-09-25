@@ -1,7 +1,7 @@
 <template>
   <div class="MyOperating">
     <div class="j_boxe">
-      <a class="__ga__index_JobSearch_001" rel="nofollow" onclick="JobSearch();" href="/searchjob/startsearch?cityCode=530">
+      <a class="__ga__index_JobSearch_001" rel="nofollow" @click="jobSearch">
         <i class="homeIcon jobsearch"></i>
         <span>职位搜索</span>
       </a>
@@ -74,7 +74,10 @@
         },
         methods: {
             ...mapActions([
-            ])
+            ]),
+          jobSearch() {
+              this.$router.push({path: 'positionSearch'})
+          }
         },
         components: {
         }

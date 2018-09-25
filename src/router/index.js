@@ -4,6 +4,7 @@ import Index from '@/page/index'
 import Login from '@/page/login'
 import SearchResult from '@/page/searchResult'
 import City from '@/page/city'
+import PositionSearch from '@/page/searchCondition'
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ export default new Router({
             path: '/city',
             name: 'City',
             component: City
+        },
+        {
+            path: '/positionSearch',
+            name: 'PositionSearch',
+            component: PositionSearch
         },
     ]
 })
