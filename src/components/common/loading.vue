@@ -1,16 +1,33 @@
 <template>
-    <div class="app-loading">
-	    正在加载...
-	</div>
+  <div class="loading">
+  </div>
 </template>
 
 <style scoped>
-	.app-loading {
-		background: #eee;
-		border-bottom: 1px solid #e5e5e5;
-		border-top: 1px solid #e5e5e5;
-		height: 1.4rem;
-		line-height: 1.4rem;
-		width: 100%;
-	}
+  .loading{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 5px solid #BEBEBE;
+    border-left: 5px solid #498aca;
+    animation: load 1s linear infinite;
+    -moz-animation:load 1s linear infinite;
+    -webkit-animation: load 1s linear infinite;
+    -o-animation:load 1s linear infinite;
+  }
+  @-webkit-keyframes load
+  {
+    from{-webkit-transform:rotate(0deg);}
+    to{-webkit-transform:rotate(360deg);}
+  }
+  @-moz-keyframes load
+  {
+    from{-moz-transform:rotate(0deg);}
+    to{-moz-transform:rotate(360deg);}
+  }
+  @-o-keyframes load
+  {
+    from{-o-transform:rotate(0deg);}
+    to{-o-transform:rotate(360deg);}
+  }
 </style>
