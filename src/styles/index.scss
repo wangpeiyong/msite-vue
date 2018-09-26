@@ -47,3 +47,40 @@ a:hover {
 .fl {
   float: left;
 }
+.r_title {
+  position: relative;
+  height: 47px;
+  font-size: 18px;
+  line-height: 47px;
+  background-color: #51A1FF;
+  text-align: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.r_returnbk {
+  position: absolute;
+  left: 0px;
+  width: 50px;
+  height: 44px;
+  top: 0px;
+}
+
+.r_returnbk i {
+  display: block;
+  font-style: normal;
+  height: 18px;
+  width: 18px;
+  float: left;
+  background: url("//img09.zhaopin.cn/2012/other/mobile/m/7.0icon/left_return.png")center center no-repeat;
+  background-size: 8px 15px;
+  margin: 12px 0 0 12px;
+}
+.rightText {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  line-height: 47px;
+  font-size: 14px;
+  color: #ffffff;
+}

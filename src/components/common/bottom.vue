@@ -58,19 +58,8 @@
 </script>
 <style>
 
-  .home_box { width: 100%; height: auto; background-color: #d6d6d6; display: block;margin-top:16px; }
-
-  .home_box .top { text-align: center; padding: 10px 0 5px 0; overflow: hidden; width: 100%; clear: both; background-color: #ececec; }
-
-  .home_box .box-item { box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -o-box-sizing: border-box; margin: 0px; padding: 0px; display: inline-block; text-align: center; color: #808080 !important; border-right: 2px solid #848484; padding: 0 10px 0 8px; }
-  .home_box .box-item.jy { color: #ff7400; }
-  .home_box .box-item.jy:link, .home_box .box-item.jy:visited { color: #ff7400 !important; }
-  .home_box .box-item.jy b { font-style: italic; }
-  .home_box .box-item:last-child { border-right: none; }
-
-  /*20150408*/
-  .home_box { background-color: #ededed; }
-  .bottom_nav { height: 45px; padding: 20px 10px 10px 10px; }
+  .home_box { width: 100%; height: auto; background-color: #ededed; display: block;margin-top:16px; }
+  .bottom_nav { height: 45px; margin: 20px 10px 10px 10px; }
   .bottom_nav li { float: left; width: 20%; text-align: center; height: 45px; position: relative; }
   .bottom_nav a { height: 45px; display: block; margin: 0 auto; position: relative; color: #686868; font-size: 12px; }
   .bottom_nav i { display: block; margin: 0 auto 3px; width: 30px; height: 28px; }
@@ -79,4 +68,6 @@
   .bottom_nav li:nth-of-type(3) i { background:url("//img09.zhaopin.cn/2012/other/mobile/m/combine_icon16312.png") no-repeat;background-position:-134px -52px; }
   .bottom_nav li:nth-of-type(4) i { background-image:url("//img09.zhaopin.cn/2012/other/mobile/m/zuijiaguzhuIcon1_16311.png");background-size: 28px 28px;}
   .bottom_nav li:nth-of-type(5) i { background:url("//img09.zhaopin.cn/2012/other/mobile/m/combine_icon16312.png") no-repeat;background-position:-172px -52px; }
+  .version{text-align: center;font-size: 12px;color: #808080;background-color: #ededed;line-height: 20px;}
+
 </style>
