@@ -1,13 +1,12 @@
 <template>
   <div class="j_HotInformation">
-    <h3><span>求职宝典</span><a href="/searchjob/hotinformationlist">更多></a></h3>
+    <h3><span>求职宝典</span><a>更多></a></h3>
     <dl>
-      <dd><a class="__ga__index_Information_001" onclick="Information();" href="/searchjob/infomationdetail/370">
-        跳槽注意事项 关于跳槽的七个建议
-      </a></dd>
-      <dd><a class="__ga__index_Information_001" onclick="Information();" href="/searchjob/infomationdetail/368">65个必看的求职面试介绍技巧与注意事项</a></dd>
-      <dd><a class="__ga__index_Information_001" onclick="Information();" href="/searchjob/infomationdetail/369">如何才能升职加薪</a></dd>
-
+      <dd v-for="(item, index) in jobHuntingTreasure.list" v-show="index <= 2">
+        <a class="__ga__index_Information_001">
+        {{item.title}}
+        </a>
+      </dd>
     </dl>
   </div>
 </template>
@@ -28,9 +27,9 @@
         mounted() {
           let param= {
             url: '/info/getInfoList',
-            data: {pageIndex: 1, pageSize: 1000}
+            data: {pageIndex: 1, pageSize: 3}
           }
-          this.getJobHuntingTreasure({url:'/info/getInfoList'})
+          this.getJobHuntingTreasure(param)
         },
         methods: {
             ...mapActions([
