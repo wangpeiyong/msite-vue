@@ -1,7 +1,7 @@
 <template>
   <div class="app-search">
     <loading v-show="showLoading"></loading>
-    <search :keyword="keyword"></search>
+    <position-search :keyword="keyword"></position-search>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
   import Loading from '../components/common/loading.vue'
   import PositionList from '../components/position/positionList.vue'
   import Page from '../components/common/page.vue'
-  import Search from '../components/index/search.vue'
+  import PositionSearch from '../components/position/positionSearch.vue'
   export default {
     data: function() {
       return {
@@ -31,7 +31,7 @@
       Loading,
       PositionList,
       Page,
-      Search,
+      PositionSearch,
     }
   }
 </script>

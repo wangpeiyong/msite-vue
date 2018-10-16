@@ -8,7 +8,10 @@ Vue.use(Vuex);
 
 /* 项目全局State */
 const state = {
+  hotPosition: [],
+  hotIndustry: [],
 	positionList: {},
+  jobHuntingTreasure: {},
 	showLoading: false,
 	showLoadingMore: false,
   isShowQuerySelector: false,

@@ -1,24 +1,7 @@
 <template>
   <div>
     <div class="city-search-box" v-show="isShowCityBox">
-      <div class="city" ref="cityQueryList" v-show="!isShowCityBody">
-        <div>
-          <div class="city-search-result">
-            <div class="result-item" v-for="query in queryCityList">
-              <div class="result-item-name" @click="queryItemClick(query)">
-                {{query.areaName}}{{query.areaName ? '，' : ''}}{{query.cityName}}
-                <span class="city-color-light">（{{query.cityName}}）</span>
-              </div>
-              <div class="result-item-tag">{{query.tag}}</div>
-            </div>
-          </div>
-          <div class="city-search-result-empty" style="display: none;">
-            未找到相关
-            <span class="city-color-weight">“城市／行政区”</span>
-            ，请修改后重试
-          </div>
-        </div>
-      </div>
+
       <div class="city" ref="cityBody" v-show="isShowCityBody">
         <div>
           <div class="city-body">
@@ -53,9 +36,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="city-header" ref="cityHeader">
-        <search-bar v-on:responseData="showResponseData" :resetInput="isShowCityBox"></search-bar>
       </div>
     </div>
   </div>
@@ -117,8 +97,10 @@
         }, [])
       },
       scrollLetter (newScrollLetter) {
+        console.log('newScrollLetter is === ', newScrollLetter)
+        console.log('this.$refs is === ', this.$refs)
         if (newScrollLetter && this.isShowCityBox) {
-          if (this.$refs['list-title-' + newScrollLetter][0]) {
+          if (this.$refs['list-title-' + newScrollLetter] && this.$refs['list-title-' + newScrollLetter][0]) {
             console.log(this.$refs['list-title-' + newScrollLetter])
             this.scrollCityBody.scrollToElement(this.$refs['list-title-' + newScrollLetter][0], 200, 0, -this.$refs.cityHeader.clientHeight)
           }
@@ -338,12 +320,5 @@
             margin-right: px2rem(40px);
             font-size: px2rem(30px);
 
-    .j_searchTop { height: 44px; background-color: #42beff; border-bottom: 1px solid #3babe5; overflow: hidden; }
-    .j_searchTop .information { display: block; width: 22px; height: 17px; float: right; background: url("//img09.zhaopin.cn/2012/other/mobile/m/combine_icon16312.png") no-repeat;background-position:-276px -26px;  position: relative; margin: 14px 10px 0 0; }
-    .j_searchTop .zhilianLogo { width: 75px; height: 45px; background: url("//img09.zhaopin.cn/2012/other/mobile/m/6.3.1/logo_16712.png") no-repeat left center; float: left; margin-left: 12px; background-size: 75px 18px; }
-
-    .j_searchTop .position { font-size: 12px; color: #fff; line-height: 45px; max-width: 60px; float: left; margin-left: 15px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-    .j_searchTop .position .icon {margin-top: 22px;}
-    .j_searchTop .position .text {padding-right: 5px; }
 </style>
 

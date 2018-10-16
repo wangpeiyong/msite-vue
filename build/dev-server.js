@@ -69,6 +69,7 @@ var readyPromise = new Promise(resolve => {
   _resolve = resolve
 })
 
+app.use('/config', express.static('./src/config'));
 //mock数据
 app.use('/mock', express.static('./src/mock'));
 app.use('/assets', express.static('./src/assets'));

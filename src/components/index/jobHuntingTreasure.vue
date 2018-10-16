@@ -22,12 +22,19 @@
         },
         computed: {
             ...mapState([
+              'jobHuntingTreasure'
             ])
         },
         mounted() {
+          let param= {
+            url: '/info/getInfoList',
+            data: {pageIndex: 1, pageSize: 1000}
+          }
+          this.getJobHuntingTreasure({url:'/info/getInfoList'})
         },
         methods: {
             ...mapActions([
+              'getJobHuntingTreasure'
             ])
         },
         components: {
