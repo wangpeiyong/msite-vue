@@ -5,6 +5,7 @@ import Login from '@/page/login'
 import SearchResult from '@/page/searchResult'
 import City from '@/page/city'
 import PositionSearch from '@/page/searchCondition'
+import JobHuntingTreasure from '@/page/jobHuntingTreasure/jobHuntingTreasureList'
 
 Vue.use(Router)
 
@@ -39,6 +40,11 @@ export default new Router({
             path: '/positionSearch',
             name: 'PositionSearch',
             component: PositionSearch
+        },
+        {
+            path: '/jobHuntingTreasure',
+            name: 'JobHuntingTreasure',
+            component: JobHuntingTreasure
         },
     ]
 })
