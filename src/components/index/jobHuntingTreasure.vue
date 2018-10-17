@@ -2,7 +2,7 @@
   <div class="j_HotInformation">
     <h3><span>求职宝典</span><a @click="gotoList">更多></a></h3>
     <dl>
-      <dd v-for="(item, index) in jobHuntingTreasure.list" v-show="index <= 2">
+      <dd v-for="(item, index) in jobHuntingTreasure.list" v-show="index <= 2" @click="gotoDetail(item)">
         <a class="__ga__index_Information_001">
         {{item.title}}
         </a>
@@ -37,6 +37,9 @@
             ]),
           gotoList() {
               this.$router.push({path: 'jobHuntingTreasure'})
+          },
+          gotoDetail(jobHuntingTreasureDetail) {
+            this.$router.push({path: '/jobHuntingTreasureDetail', query: {id: jobHuntingTreasureDetail.id}})
           }
         },
         components: {

@@ -12,7 +12,7 @@
     <div class="j_recommendedJobs">
       <ul class="companyList">
         <li><a target="_blank" href="http://cnt.zhaopin.com/Market/whole_counter.jsp?sid=121127720&site=wzl&url=http://special.zhaopin.com/h5/2017/bj/scbn021665">3月6日请您参加一场只属于你们的盛宴</a></li>
-        <li><a v-for="item in jobHuntingTreasure.list" class="ui-link __ga__index_Information_001">{{item.title}}</a></li>
+        <li v-for="item in jobHuntingTreasure.list" @click="gotoDetail(item)"><a  class="ui-link __ga__index_Information_001">{{item.title}}</a></li>
       </ul>
     </div>
     <page :nowPageOnOff="nowPageOnOff" :total="jobHuntingTreasure ? jobHuntingTreasure.totalCount : 0" :max="getMaxPage(jobHuntingTreasure)" @changePage="changePage"></page>
@@ -26,7 +26,6 @@
   export default {
     data: function() {
       return {
-        keyword: '',
         nowPageOnOff : true,
         list : {
           total : 0,
@@ -56,6 +55,9 @@
       getMaxPage(jt) {
         return Math.ceil(jt.totalCount / this.list.pageSize)
       },
+      gotoDetail(jobHuntingTreasureDetail) {
+        this.$router.push({path: '/jobHuntingTreasureDetail', query: {id: jobHuntingTreasureDetail.id}})
+      }
     },
     mounted() {
       this.getJobHuntingTreasures()
