@@ -29,6 +29,10 @@ export default {
 		state.showLoading = payload.showLoadingFlag;
 		state.userDetail = payload.userDetail;
 	},
+	[TYPES.GET_RECOMMEND](state, payload) {
+		state.showLoading = payload.showLoadingFlag;
+		state.recommend = payload.recommend;
+	},
 	[TYPES.GET_RECOMMEND_LIST](state, payload) {
 		state.showLoading = payload.showLoadingFlag;
 		state.positionList = payload.list;

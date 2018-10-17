@@ -13,7 +13,7 @@ function handle(result) {
     } else if (result.statusCode == 208) {
       // need relogin TODO
     } else {
-      return Promise.reject(result.data.statusDescription)
+      return Promise.reject(result.statusDescription)
     }
   }
   if (result.status > 204) { // 请求失败
@@ -21,10 +21,27 @@ function handle(result) {
   }
 }
 
+function initParams(param) {
+  const at = cookie.get('at');
+  const rt = cookie.get('rt');
+  const uticket = cookie.get('uticket');
+  if (!param.data) {
+    param.data = {}
+  }
+  if (at && rt) {
+    param.data['at'] = at
+    param.data['rt'] = rt
+  }
+  if (uticket) {
+    param.data['uticket'] = uticket
+  }
+  return param;
+}
+
 export default {
   async get(params) {
     try {
-      let result = await request.get(params)
+      let result = await request.get(initParams(params))
       return handle(result)
     } catch (err) {
       return Promise.reject(err)
@@ -32,7 +49,7 @@ export default {
   },
   async post(params) {
     try {
-      let result = await request.post(params)
+      let result = await request.post(initParams(params))
       return handle(result)
     } catch (err) {
       return Promise.reject(err)
@@ -40,7 +57,7 @@ export default {
   },
   async patch(params) {
     try {
-      let result = await request.patch(params)
+      let result = await request.patch(initParams(params))
       return handle(result)
     } catch (err) {
       return Promise.reject(err)
@@ -48,7 +65,7 @@ export default {
   },
   async put(params) {
     try {
-      let result = await request.put(params)
+      let result = await request.put(initParams(params))
       return handle(result)
     } catch (err) {
       return Promise.reject(err)
@@ -56,7 +73,7 @@ export default {
   },
   async delete(params) {
     try {
-      let result = await request.delete(params)
+      let result = await request.delete(initParams(params))
       return handle(result)
     } catch (err) {
       return Promise.reject(err)
