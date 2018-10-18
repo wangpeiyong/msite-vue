@@ -11,7 +11,7 @@ function handleError(msg) {
 export default {
   async getHotPosition({commit, state}, param) {
 		let showLoadingFlag;
-		commit(types.GET_HOT_POSITION, {showLoadingFlag: true});
+		commit(types.GET_HOT_POSITION, {showLoadingFlag: false});
     axios.get('./config/hot.json').then((response) => {
       const hotPosition = response.data.Job2.Item
       commit(types.GET_HOT_POSITION, {hotPosition, showLoadingFlag: false});
@@ -20,7 +20,7 @@ export default {
 	},
   async getHotIndustry({commit, state}, param) {
 		let showLoadingFlag;
-		commit(types.GET_HOT_INDUSTRY, {showLoadingFlag: true});
+		commit(types.GET_HOT_INDUSTRY, {showLoadingFlag: false});
     axios.get('./config/hot.json').then((response) => {
       const hotIndustry = response.data.Industrys.Industry
       commit(types.GET_HOT_INDUSTRY, {hotIndustry, showLoadingFlag: false});

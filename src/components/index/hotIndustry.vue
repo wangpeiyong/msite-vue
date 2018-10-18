@@ -5,7 +5,7 @@
         <span>热门行业</span>
       </dt>
       <dd v-for="item in hotIndustry">
-        <a :class="item.class ? item.class + ' __ga__index_topIndustry_001' : '__ga__index_topIndustry_001'">{{item.name}}</a>
+        <a :class="item.class ? item.class + ' __ga__index_topIndustry_001' : '__ga__index_topIndustry_001'" @click="gotoDetail(item)">{{item.name}}</a>
       </dd>
     </dl>
   </div>
@@ -30,7 +30,10 @@
     methods: {
       ...mapActions([
         'getHotIndustry'
-      ])
+      ]),
+      gotoDetail(item) {
+        this.$toasted.show('暂未开发').goAway(2000)
+      }
     },
     components: {}
   }

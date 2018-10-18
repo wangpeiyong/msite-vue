@@ -7,13 +7,13 @@
           <dt>
             <i class="wrap">
               <span>{{item.name}}</span>
-              <a v-for="(item2, index2) in item.Job" v-show="index2 <= 2" class="__ga__index_HotJobsNum_001">{{item2.name}}</a>
+              <a v-for="(item2, index2) in item.Job" v-show="isShowItem(index) || index2 < 3" class="__ga__index_HotJobsNum_001" @click="gotoDetail(item2)">{{item2.name}}</a>
             </i>
             <b @click="expandItem(index)" :class="isShowItem(index) ? 'h' : ''"></b>
           </dt>
-          <dd>
-            <a v-for="(item2, index2) in item.Job" v-show="isShowItem(index)" class="__ga__index_HotJobsNum_001">{{item2.name}}</a>
-          </dd>
+          <!--<dd>-->
+            <!--<a v-for="(item2, index2) in item.Job" v-show="isShowItem(index)" class="__ga__index_HotJobsNum_001" @click="gotoDetail(item2)">{{item2.name}}</a>-->
+          <!--</dd>-->
         </dl>
       </li>
     </ul>
@@ -57,6 +57,9 @@
         const key = 'isExpandItem_' + index
         const flag = this.$store.state[key] || false
         this.$set(this.$store.state, key, !flag)
+      },
+      gotoDetail(item) {
+        this.$toasted.show('暂未开发').goAway(2000)
       }
     },
     components: {}
