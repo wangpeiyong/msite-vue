@@ -9,9 +9,10 @@
         <span class="text">北京</span>
       </a>
 
-      <a class="information" rel="nofollow" onclick="MessageCenterEvent();"><b class="newNumber"></b></a>
+      <a class="information" rel="nofollow" @click="todo"><b class="newNumber"></b></a>
 
-      <a class="login fr" rel="nofollow" @click="doLogin">注册/登录</a>
+      <a class="login fr" rel="nofollow" @click="doLogin" v-show="!userDetail.name">注册/登录</a>
+      <a class="IndividualCenter" @click="gotoHome" v-show="userDetail.name"></a>
     </section>
 
   </div>
@@ -27,7 +28,7 @@
       return {}
     },
     computed: {
-      ...mapState([])
+      ...mapState(['userDetail'])
     },
     mounted() {
     },
@@ -40,6 +41,12 @@
         let scrollLetter = '北京'
         this.$router.push({path: 'city', query: {scrollLetter}})
       },
+      todo() {
+        this.$toasted.show('暂未开发').goAway(2000)
+      },
+      gotoHome() {
+        this.$router.push({path: 'home'})
+      }
     },
     components: {
       City
@@ -101,6 +108,15 @@
     height: 21px;
     font-size: 14px;
     color: #fff;
+  }
+
+  .j_searchTop .IndividualCenter {
+    width: 22px;
+    height: 21px;
+    float: right;
+    background: url("../../../static/images/combine_icon16312.png") no-repeat;
+    background-position:-276px -2px;
+    margin: 12px 18px 0 0;
   }
 
 </style>

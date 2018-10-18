@@ -1,9 +1,9 @@
 <template>
   <div class="home_box">
     <ul class="bottom_nav">
-      <li><a class="__ga__index_IndexHomeEvent__001" onclick="IndexHome_Event();" href="/"><i></i>首页</a></li>
+      <li><a class="__ga__index_IndexHomeEvent__001" @click="gotoIndex"><i></i>首页</a></li>
       <li>
-        <a class="__ga__index_MyZhilianEvent_001" rel="nofollow" onclick="MyZhilian_Event();" href="/home/index"><i></i>我的智联</a>
+        <a class="__ga__index_MyZhilianEvent_001" rel="nofollow" @click="gotoHome"><i></i>我的智联</a>
       </li>
       <li><a class="__ga__index_appDownload_001" rel="nofollow" onclick="appDownload();" href="/down"><i></i>APP下载</a></li>
 
@@ -46,9 +46,15 @@
             // this.getSliders();
         },
         methods: {
-            ...mapActions([
-                // 'getSliders'
-            ])
+          ...mapActions([
+              // 'getSliders'
+          ]),
+          gotoIndex() {
+             this.$router.replace({path: '/'})
+          },
+          gotoHome() {
+             this.$router.push({path: '/home'})
+          }
         },
         components: {
             // swiper,

@@ -17,7 +17,7 @@ function handle(result) {
     }
   }
   if (result.status > 204) { // 请求失败
-    return Promise.reject(result.data.message)
+    return Promise.reject('请求失败')
   }
 }
 

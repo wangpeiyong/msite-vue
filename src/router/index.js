@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/page/index'
+import Home from '@/page/home'
 import Login from '@/page/login'
 import SearchResult from '@/page/position/searchResult'
 import City from '@/page/city'
@@ -19,6 +20,11 @@ export default new Router({
             path: '/',
             name: '/',
             redirect: '/index'
+        },
+        {
+            path: '/home',
+            name: 'Home',
+            component: Home
         },
         {
             path: '/index',

@@ -77,6 +77,12 @@ export default {
     })
     commit(types.GET_RECOMMEND, {recommend, showLoadingFlag: false});
 	},
+  async logout({commit, state}, param) {
+		let showLoadingFlag;
+    await RequestUtils.get(param).catch(msg => {
+      handleError(msg)
+    })
+	},
 	getRecommendList({commit, state}) {
 		let showLoadingFlag,
 			list = [];

@@ -39,7 +39,7 @@
         })
       },
       getQueryData (response) {
-        if (response.data && response.data.data) {
+        if (response && response.data && response.data.data) {
           this.$emit('responseData', response.data.data)
         }
       },
