@@ -28,14 +28,14 @@
 
     </div>
     <div class="j_boxe" id="newfeed">
-      <a class="__ga__index_MyCollectEvent_001" onclick="MyCollect_Event();">
+      <a class="__ga__index_MyCollectEvent_001" @click="gotoMyCollect">
         <i class="homeIcon mycollect"></i>
         <span>我的收藏</span>
       </a>
     </div>
     <div class="j_boxe" style="position:relative" id="resumeInfo">
 
-      <a class="__ga__index_MyResumeEvent_001" rel="nofollow" onclick="MyResume_Event();">
+      <a class="__ga__index_MyResumeEvent_001" rel="nofollow" @click="gotoMyResume">
         <i class="homeIcon mycv"></i>
         <span>我的简历</span>
       </a>
@@ -76,6 +76,12 @@
       ...mapActions([]),
       jobSearch() {
         this.$router.push({path: 'positionSearch'})
+      },
+      gotoMyResume() {
+        this.$router.push({path: '/myResume'})
+      },
+      gotoMyCollect() {
+        this.$router.push({path: '/myCollect'})
       }
     },
     components: {}

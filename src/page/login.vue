@@ -7,8 +7,8 @@
 
 <script>
   import {mapState, mapActions} from 'vuex'
-  import Loading from '../components/common/loading.vue'
-  import Login from '../components/login/login.vue'
+  import Loading from '@/components/common/loading.vue'
+  import Login from '@/components/login/login.vue'
   export default {
     data: function() {
       return {

@@ -14,10 +14,10 @@
 
 <script>
   import {mapState, mapActions} from 'vuex'
-  import Loading from '../components/common/loading.vue'
-  import City from '../components/city/index'
-  import QuerySelector from '../components/common/querySelector/index'
-  import LetterSelector from '../components/common/letterSelector'
+  import Loading from '@/components/common/loading.vue'
+  import City from '@/components/city/index'
+  import QuerySelector from '@/components/common/querySelector/index'
+  import LetterSelector from '@/components/common/letterSelector'
   export default {
     data: function() {
       return {

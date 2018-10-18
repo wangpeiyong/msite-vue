@@ -19,7 +19,7 @@
 
 <script>
   import {mapState, mapActions} from 'vuex'
-  import City from '../city/index'
+  import City from '@/components/city/index'
 
   export default {
     name: 'login',

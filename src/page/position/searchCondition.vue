@@ -7,10 +7,10 @@
 
 <script>
   import {mapState, mapActions} from 'vuex'
-  import Loading from '../components/common/loading.vue'
-  import PositionList from '../components/position/positionList.vue'
-  import Page from '../components/common/page.vue'
-  import PositionSearch from '../components/position/positionSearch.vue'
+  import Loading from '@/components/common/loading.vue'
+  import PositionList from '@/components/position/positionList.vue'
+  import Page from '@/components/common/page.vue'
+  import PositionSearch from '@/components/position/positionSearch.vue'
   export default {
     data: function() {
       return {

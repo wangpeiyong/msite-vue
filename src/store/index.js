@@ -11,6 +11,8 @@ const state = {
   hotPosition: [],
   hotIndustry: [],
 	positionList: {},
+  favoritedPositionList: [],
+  showNumber: {},
 	userDetail: {},
 	recommend: {},
   jobHuntingTreasure: {},

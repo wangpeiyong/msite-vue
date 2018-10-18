@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {
   PREFIX
-} from '../config/app'
+} from '@/config/app'
 import _ from 'underscore'
 
 function handleError(err, params) {

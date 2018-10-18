@@ -21,8 +21,8 @@
 
 <script>
   import {mapState, mapActions} from 'vuex'
-  import Loading from '../../components/common/loading.vue'
-  import Page from '../../components/common/page.vue'
+  import Loading from '@/components/common/loading.vue'
+  import Page from '@/components/common/page.vue'
   export default {
     data: function() {
       return {

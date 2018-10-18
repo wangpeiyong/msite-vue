@@ -35,6 +35,22 @@ export default {
     })
     commit(types.GET_POSITION_LIST, {positionList, showLoadingFlag: false});
 	},
+  async getFavoritedPositionList({commit, state}, param) {
+		let showLoadingFlag;
+		commit(types.GET_FAVORITED_POSITION_LIST, {showLoadingFlag: true});
+    let favoritedPositionList = await RequestUtils.get(param).catch(msg => {
+      handleError(msg)
+    })
+    commit(types.GET_FAVORITED_POSITION_LIST, {favoritedPositionList, showLoadingFlag: false});
+	},
+  async getShowNumber({commit, state}, param) {
+		let showLoadingFlag;
+		commit(types.GET_SHOW_NUMBER, {showLoadingFlag: true});
+    let showNumber = await RequestUtils.get(param).catch(msg => {
+      handleError(msg)
+    })
+    commit(types.GET_SHOW_NUMBER, {showNumber, showLoadingFlag: false});
+	},
   async getJobHuntingTreasure({commit, state}, param) {
 		let showLoadingFlag;
 		commit(types.GET_JOB_HUNTING_TREASURE, {showLoadingFlag: true});

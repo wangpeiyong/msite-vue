@@ -7,6 +7,18 @@ export default {
 		  state.positionList = payload.positionList;
     }
 	},
+	[TYPES.GET_FAVORITED_POSITION_LIST](state, payload) {
+		state.showLoading = payload.showLoadingFlag;
+		if (payload.favoritedPositionList) {
+		  state.favoritedPositionList = payload.favoritedPositionList;
+    }
+	},
+	[TYPES.GET_SHOW_NUMBER](state, payload) {
+		state.showLoading = payload.showLoadingFlag;
+		if (payload.showNumber) {
+		  state.showNumber = payload.showNumber;
+    }
+	},
 	[TYPES.GET_JOB_HUNTING_TREASURE](state, payload) {
 		state.showLoading = payload.showLoadingFlag;
 		if (payload.jobHuntingTreasure) {
