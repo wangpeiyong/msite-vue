@@ -9,7 +9,7 @@
   export default {
     data: function() {
       return {
-        jobHuntingTreasureDetail: {}
+        jobHuntingTreasureDetail: {},
       }
     },
     computed: {
@@ -32,17 +32,25 @@
           }
         })
       },
+      doGetJobHuntingTreasures() {
+        const id = this.$route.query.id
+        if (!this.jobHuntingTreasure || !this.jobHuntingTreasure.list) {
+          this.getJobHuntingTreasures(id)
+        } else {
+          this.jobHuntingTreasure.list.forEach(jt => {
+            if (jt.id == id) {
+              this.jobHuntingTreasureDetail = jt
+            }
+          })
+        }
+      }
     },
     mounted() {
-      const id = this.$route.query.id
-      if (!this.jobHuntingTreasure || !this.jobHuntingTreasure.list) {
-        this.getJobHuntingTreasures(id)
-      } else {
-        this.jobHuntingTreasure.list.forEach(jt => {
-          if (jt.id == id) {
-            this.jobHuntingTreasureDetail = jt
-          }
-        })
+      this.doGetJobHuntingTreasures()
+    },
+    watch: {
+      '$route': function () {
+        this.doGetJobHuntingTreasures()
       }
     },
     components: {
