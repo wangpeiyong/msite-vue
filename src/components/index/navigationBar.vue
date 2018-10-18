@@ -7,21 +7,21 @@
       </a>
     </div>
     <div class="j_boxe" id="MyInterviewIcon">
-      <a class="__ga__index_wodemianshi_001" rel="nofollow" onclick="MyInterview_Event();">
+      <a class="__ga__index_wodemianshi_001" rel="nofollow" @click="todo">
         <i class="homeIcon mianshi"></i>
         <span>我的面试</span>
       </a>
       <b class="newNumber"></b>
     </div>
     <div class="j_boxe" id="zhidingIcon">
-      <a onclick="ResumeTopIndex_Event();" rel="nofollow">
+      <a @click="todo" rel="nofollow">
         <i class="homeIcon zhiding"></i>
         <span>置顶简历</span>
       </a>
       <b class="hongren"></b>
     </div>
     <div class="j_boxe">
-      <a class="__ga__index_RefreshResume_001" rel="nofollow" onclick="Refresh_resume();">
+      <a class="__ga__index_RefreshResume_001" rel="nofollow" @click="todo">
         <i class="homeIcon refreshresume"></i>
         <span>刷新简历</span>
       </a>
@@ -42,7 +42,7 @@
 
     </div>
     <div class="j_boxe">
-      <a class="__ga__index_MyApplyEvent_001" rel="nofollow" onclick="MyApply_Event();">
+      <a class="__ga__index_MyApplyEvent_001" rel="nofollow" @click="todo">
         <i class="homeIcon MyApply"
            style="background:url('//img09.zhaopin.cn/2012/other/mobile/m/MyApply_18816.png') center center no-repeat;background-size:40px;"></i>
         <span>投递反馈</span>
@@ -50,7 +50,7 @@
       <b class="newNumber"></b>
     </div>
     <div class="j_boxe">
-      <a onclick="JobStatistics_Event();" rel="nofollow">
+      <a @click="gotoJobStatistics" rel="nofollow">
         <i class="homeIcon jobStatistics"></i>
         <span>求职统计</span>
       </a>
@@ -82,6 +82,12 @@
       },
       gotoMyCollect() {
         this.$router.push({path: '/myCollect'})
+      },
+      gotoJobStatistics() {
+        this.$router.push({path: '/jobStatistics'})
+      },
+      todo() {
+        this.$toasted.show('暂未开发').goAway(2000)
       }
     },
     components: {}

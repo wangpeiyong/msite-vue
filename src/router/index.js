@@ -9,6 +9,7 @@ import JobHuntingTreasure from '@/page/jobHuntingTreasure/jobHuntingTreasureList
 import JobHuntingTreasureDetail from '@/page/jobHuntingTreasure/jobHuntingTreasureDetail'
 import MyResume from '@/page/resume/myResume'
 import MyCollect from '@/page/position/myCollect'
+import JobStatistics from '@/page/jobStatistics'
 
 Vue.use(Router)
 
@@ -63,6 +64,11 @@ export default new Router({
             path: '/myCollect',
             name: 'MyCollect',
             component: MyCollect
+        },
+        {
+            path: '/jobStatistics',
+            name: 'JobStatistics',
+            component: JobStatistics
         },
     ]
 })
