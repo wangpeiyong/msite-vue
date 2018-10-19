@@ -11,10 +11,22 @@ function handle(result) {
     result = result.data
     if (result.statusCode == 200) {
       return Promise.resolve(result.data)
-    } else if (result.statusCode == 208) {
-      // need relogin TODO
+    } else if (result.statusCode == 206) {
       Vue.toasted.error('请重新登录').goAway(2000)
-      Vue.$router.replace('/login')
+      cookie.set('at', '', -1)
+      cookie.set('rt', '', -1)
+      setTimeout(()=> {
+        window.location.hash = 'login'
+        window.location.reload()
+      }, 2000)
+    } else if (result.statusCode == 208) {
+      Vue.toasted.error('请重新登录').goAway(2000)
+      cookie.set('at', '', -1)
+      cookie.set('rt', '', -1)
+      setTimeout(()=> {
+        window.location.hash = 'login'
+        window.location.reload()
+      }, 2000)
     } else {
       return Promise.reject(result.statusDescription)
     }

@@ -17,7 +17,6 @@
 </template>
 
 <script>
-  import _ from 'underscore'
   import {mapState, mapActions} from 'vuex'
   import Loading from '@/components/common/loading.vue'
   import Bottom from '@/components/common/bottom.vue'
@@ -44,6 +43,9 @@
     methods: {
       ...mapActions(['getUserDetail', 'getRecommend']),
       async doGetRecommend() {
+        if (!this.userDetail.cityId) {
+          return
+        }
         const param = {
           url: '/position/Recommend',
           data: {
@@ -54,12 +56,16 @@
       },
       async doGetUserDetail() {
         if (!this.userDetail.id) {
-          const param= {
-            url: '/user/getUserDetail',
-            data: {}
+          const at = cookie.get('at')
+          const rt = cookie.get('rt')
+          if (at && rt) {
+            const param= {
+              url: '/user/getUserDetail',
+              data: {}
+            }
+            await this.getUserDetail(param);
+            this.doGetRecommend()
           }
-          await this.getUserDetail(param);
-          this.doGetRecommend()
         }
       }
     },
@@ -67,6 +73,11 @@
       const at = cookie.get('at')
       const rt = cookie.get('rt')
       if (at && rt) {
+        this.doGetUserDetail()
+      }
+    },
+    watch: {
+      '$route': function() {
         this.doGetUserDetail()
       }
     },

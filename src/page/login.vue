@@ -21,11 +21,10 @@
       ])
     },
     methods: {
-      ...mapActions([])
+      ...mapActions([]),
     },
     mounted() {
       this.redirect = this.$route.query.redirect
-      console.log(this.redirect)
     },
     components: {
       Loading,

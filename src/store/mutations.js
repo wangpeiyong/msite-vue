@@ -39,15 +39,21 @@ export default {
 	},
 	[TYPES.GET_USER_DETAIL](state, payload) {
 		state.showLoading = payload.showLoadingFlag;
-		state.userDetail = payload.userDetail;
+		if (payload.userDetail) {
+		  state.userDetail = payload.userDetail;
+    }
 	},
 	[TYPES.GET_RECOMMEND](state, payload) {
 		state.showLoading = payload.showLoadingFlag;
-		state.recommend = payload.recommend;
+    if (payload.recommend) {
+		  state.recommend = payload.recommend;
+    }
 	},
 	[TYPES.GET_RECOMMEND_LIST](state, payload) {
 		state.showLoading = payload.showLoadingFlag;
-		state.positionList = payload.list;
+    if (payload.positionList) {
+		  state.positionList = payload.list;
+    }
 	},
   [TYPES.CITY] (state, city) {
     state.city = city
