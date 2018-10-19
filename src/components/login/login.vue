@@ -37,7 +37,7 @@
                 </span>
 
               </div>
-              <div id="smsloginBtn" class="btn" onclick="smsLogin();">登 录</div>
+              <div id="smsloginBtn" class="btn" @click="doLogin">登 录</div>
             </section>
           </div>
 
@@ -82,6 +82,7 @@
 
 <script>
     import {mapState, mapActions} from 'vuex'
+    import cookie from 'js-cookie'
     export default {
         name: 'loginComp',
         data() {
@@ -96,7 +97,14 @@
         },
         methods: {
             ...mapActions([
-            ])
+              'getUserDetail'
+            ]),
+          async doLogin() {
+            cookie.set('at', '094d847ec9054e38a17424806cb7d9c2')
+            cookie.set('rt', '475fdbe7e71143a5892432c06ac71987')
+            this.$toasted.success('模拟登陆成功').goAway(2000)
+            this.$router.replace({path: '/'})
+          }
         },
         components: {
         }

@@ -11,8 +11,8 @@
 
       <a class="information" rel="nofollow" @click="todo"><b class="newNumber"></b></a>
 
-      <a class="login fr" rel="nofollow" @click="doLogin" v-show="!userDetail.name">注册/登录</a>
-      <a class="IndividualCenter" @click="gotoHome" v-show="userDetail.name"></a>
+      <a class="login fr" rel="nofollow" @click="doLogin" v-show="!userDetail.id">注册/登录</a>
+      <a class="IndividualCenter" @click="gotoHome" v-show="userDetail.id"></a>
     </section>
 
   </div>

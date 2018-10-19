@@ -5,6 +5,7 @@ import * as types from './mutation-types.js'
 let num = 0;
 
 function handleError(msg) {
+  console.error(msg)
   Vue.toasted.error(msg).goAway(2000);
 }
 /* 异步操作 */

@@ -38,6 +38,7 @@
         'showLoading',
         'showLoadingMore',
         'userDetail',
+        'recommend',
       ])
     },
     methods: {
@@ -52,12 +53,14 @@
         this.getRecommend(param)
       },
       async doGetUserDetail() {
-        const param= {
-          url: '/user/getUserDetail',
-          data: {}
+        if (!this.userDetail.id) {
+          const param= {
+            url: '/user/getUserDetail',
+            data: {}
+          }
+          await this.getUserDetail(param);
+          this.doGetRecommend()
         }
-        await this.getUserDetail(param);
-        this.doGetRecommend()
       }
     },
     mounted() {
@@ -66,8 +69,6 @@
       if (at && rt) {
         this.doGetUserDetail()
       }
-      // cookie.set('at', '663c4e29c34148e493171a8e1ca83eb9')
-      // cookie.set('rt', '1f76be767b7444c5ad0ddf6590d0fdd5')
     },
     components: {
       Loading,

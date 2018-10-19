@@ -154,10 +154,13 @@
         this.$router.push({path: '/myResume'})
       },
       doLogout() {
-        this.logout()
+        const param = {
+          url: '/user/logout'
+        }
+        this.logout(param)
         cookie.set('at', '', -1)
         cookie.set('rt', '', -1)
-        this.$emit('GET_USER_DETAIL')
+        this.$store.commit('GET_USER_DETAIL', {userDetail: {}});
         this.$router.replace({path: '/'})
       }
     },

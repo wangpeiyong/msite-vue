@@ -14,14 +14,14 @@
       <b class="newNumber"></b>
     </div>
     <div class="j_boxe" id="zhidingIcon">
-      <a @click="todo" rel="nofollow">
+      <a @click="gotoResumeTop" rel="nofollow">
         <i class="homeIcon zhiding"></i>
         <span>置顶简历</span>
       </a>
       <b class="hongren"></b>
     </div>
     <div class="j_boxe">
-      <a class="__ga__index_RefreshResume_001" rel="nofollow" @click="todo">
+      <a class="__ga__index_RefreshResume_001" rel="nofollow" @click="gotoResumeRefresh">
         <i class="homeIcon refreshresume"></i>
         <span>刷新简历</span>
       </a>
@@ -85,6 +85,12 @@
       },
       gotoJobStatistics() {
         this.$router.push({path: '/jobStatistics'})
+      },
+      gotoResumeTop() {
+        this.$router.push({path: '/resumeTop'})
+      },
+      gotoResumeRefresh() {
+        this.$router.push({path: '/resumeRefresh'})
       },
       todo() {
         this.$toasted.show('暂未开发').goAway(2000)

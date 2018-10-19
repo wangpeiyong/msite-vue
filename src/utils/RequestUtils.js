@@ -1,6 +1,7 @@
 import request from './request'
 import log from './log'
 import cookie from 'js-cookie'
+import Vue from 'vue'
 import {
   APP_ENV
 } from '../config/app'
@@ -12,6 +13,8 @@ function handle(result) {
       return Promise.resolve(result.data)
     } else if (result.statusCode == 208) {
       // need relogin TODO
+      Vue.toasted.error('请重新登录').goAway(2000)
+      Vue.$router.replace('/login')
     } else {
       return Promise.reject(result.statusDescription)
     }
@@ -25,6 +28,9 @@ function initParams(param) {
   const at = cookie.get('at');
   const rt = cookie.get('rt');
   const uticket = cookie.get('uticket');
+  if (!param) {
+    param = {}
+  }
   if (!param.data) {
     param.data = {}
   }
