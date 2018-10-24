@@ -1,21 +1,130 @@
 <template>
   <div>
-    <header id="r_header" class="r_title">
-      <a class="r_returnbk">
-        <i></i>
-      </a>
-      升级简历
-    </header>
-    <img src="//img09.zhaopin.cn/2012/other/mobile/m/resumeImg/resumeTop_headImg.png" class="resumeTop_headImg" />
-    <resume-top></resume-top>
+    <div class="pay_container">
+      <div class="saleP adap">
+        <p class="title">简历置顶<span class="payxyText"  @click="todo">服务协议</span></p>
+        <p class="exptit">预计简历被HR查看的几率，会提升79%~85%</p>
+      </div>
+      <div class="pay_row">
+        <ul>
+          <li class="focused">
+            <p class="PName"><span>30天+7天</span></p>
+            <p class="prime_price">¥300.0</p>
+            <p class="new_price">¥98.0</p>
+            <div class="DiscountIcon"></div>
+            <a class="current_buy"  @click="todo">
+              购买
+            </a>
+          </li>
+          <li class="">
+            <p class="PName"><span>15天</span></p>
+            <p class="prime_price">¥150.0</p>
+            <p class="new_price">¥68.0</p>
+            <a class="current_buy"  @click="todo">
+              购买
+            </a>
+          </li>
+          <li class="">
+            <p class="PName"><span>7天</span></p>
+            <p class="prime_price">¥70.0</p>
+            <p class="new_price">¥50.0</p>
+            <a class="current_buy"  @click="todo">
+              购买
+            </a>
+          </li>
+
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="jiuyebang">
+      <div class="saleP">
+        <p class="title">简历优化<span class="payxyText" @click="todo">服务协议</span></p>
+        <p class="exptit">一对一高品质服务，为你打造直击HR心灵的简历</p>
+      </div>
+      <div class="setMeal">
+        <ul>
+          <li class="setMealD">
+            <p class="set-line01"><span class="set-mark" style="background:#FF8E00;"></span>简历优化套餐1</p>
+            <p class="set-line02">由 <span class="bold">资深高级HR总监/资深高级猎头专家</span> 为你定制</p>
+            <p class="set-line03">
+              <span class="stit">服务</span>
+              <span style="display:inline-block;width:85%;line-height:20px;">高品质优化简历服务，包含约50分钟面试技巧、薪资谈判及职业规划等辅导</span>
+            </p>
+            <p class="set-line03"><span class="stit">赠送</span><span class="stext">简历置顶30天</span></p>
+            <div class="set-line04">
+              <a  @click="todo">购买</a>
+              <p>
+                <span class="set-price">¥699</span>
+                <small>¥1090</small>
+              </p>
+              <div class="clearfix"></div>
+            </div>
+          </li>
+          <li class="setMealB">
+            <p class="set-line01"><span class="set-mark"></span>简历优化套餐2</p>
+            <p class="set-line02">由 <span class="bold">资深HR总监/资深猎头专家</span> 为你定制</p>
+            <p class="set-line03"><span class="stit">服务</span><span class="stext">根据用户实际情况，一对一打造私人订制简历</span></p>
+            <p class="set-line03"><span class="stit">赠送</span><span class="stext">简历置顶30天</span></p>
+            <p class="set-line03"><span class="stit">适合</span><span class="stext">工作经验5年以上</span></p>
+            <div class="set-line04">
+              <a  @click="todo">购买</a>
+              <p>
+                <span class="set-price">¥499</span>
+                <small>¥899</small>
+              </p>
+              <div class="clearfix"></div>
+            </div>
+            <div class="hintmessage"></div>
+          </li>
+          <li class="setMealC">
+            <p class="set-line01"><span class="set-mark"></span>简历优化套餐3</p>
+            <p class="set-line02">由 <span class="bold">HR高级经理/资深猎头顾问</span> 为你定制</p>
+            <p class="set-line03"><span class="stit">服务</span><span class="stext">提升简历含金量，增加职位匹配度，凸显个人能力</span></p>
+            <p class="set-line03"><span class="stit">赠送</span><span class="stext">简历置顶15天</span></p>
+            <p class="set-line03"><span class="stit">适合</span><span class="stext">工作经验1-5年</span></p>
+            <div class="set-line04">
+              <a  @click="todo">购买</a>
+              <p>
+                <span class="set-price">¥399</span>
+                <small>¥699</small>
+              </p>
+              <div class="clearfix"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="msztc">
+      <p class="set-line01">面试直通车<span class="payxyText"  @click="todo">服务协议</span></p>
+      <p class="set-line02">由资深HR帮你提升面试成功率，助你拿到理想offer</p>
+      <div class="msztcBox">
+        <p class="set-line03">
+          <span class="stit">服务</span>
+          <span style="display:inline-block;width:85%;line-height:20px;">一对一指导，全真模拟，面试预演，帮你顺利面试</span>
+        </p>
+        <p class="set-line03"><span class="stit">赠送</span><span class="stext">2小时线上指导 根据需求灵活预约时间</span></p>
+        <p class="set-line03"><span class="stit">适合</span><span style="display:inline-block;width:85%;line-height:20px;">即将面试却毫无准备；面试能力欠缺；缺乏面试技巧的人</span></p>
+        <div class="set-line04">
+          <a  @click="todo">购买</a>
+          <p>
+            <span class="set-price">¥399</span>
+            <small>¥799</small>
+          </p>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   import {mapState, mapActions} from 'vuex'
   import Loading from '@/components/common/loading.vue'
-  import ResumeTop from '@/components/resume/resumeTop.vue'
   export default {
+    name: 'resumeTop',
     data: function() {
       return {
       }
@@ -35,7 +144,6 @@
     },
     components: {
       Loading,
-      ResumeTop,
     }
   }
 </script>

@@ -34,45 +34,46 @@
               </li>
 
               <li>
-                <a class="__ga__resume_Refreshresume_001 wrap" data-status="1" data-resumeid="205117386" @click="gotoResumeTop">
+                <a class="__ga__resume_Refreshresume_001 wrap" data-status="1" data-resumeid="205117386" @click="gotoResumeRefresh">
                   <img src="//img09.zhaopin.cn/2012/other/mobile/m/creatResumeIcon/resumeIndex_2.png" width="16" alt="" />
                   <span class="name">刷新简历</span>
                 </a>
               </li>
               <li>
-                <a class="__ga__resume_Editorresume_001 wrap" @click="gotoResumeTop">
+                <a class="__ga__resume_Editorresume_001 wrap" @click="todo">
                   <img src="//img09.zhaopin.cn/2012/other/mobile/m/creatResumeIcon/resumeIndex_3.png" width="16" alt="" />
                   <span class="name">编辑简历</span>
                 </a>
               </li>
               <li>
 
-                <a class="__ga__resume_Previewresume_001 wrap" resumeId="205117386" resumeVer="1" resumeNum="JM135509455R90250000000"  @click="gotoResumeTop">
+                <a class="__ga__resume_Previewresume_001 wrap" resumeId="205117386" resumeVer="1" resumeNum="JM135509455R90250000000"  @click="todo">
                   <img src="//img09.zhaopin.cn/2012/other/mobile/m/creatResumeIcon/resumeIndex_4.png" width="16" alt="" />
                   <span class="name">预览简历</span>
                 </a>
               </li>
               <li>
-                <a class="__ga__resume_EditorresumeName_001 wrap renameResumeBtn" @click="gotoResumeTop" data-resumevalue="不用了12" data-resumeid="205117386">
+                <a class="__ga__resume_EditorresumeName_001 wrap renameResumeBtn" @click="doRenameResume" data-resumevalue="不用了12" data-resumeid="205117386">
                   <img src="//img09.zhaopin.cn/2012/other/mobile/m/creatResumeIcon/resumeIndex_5.png" width="16" alt="" />
                   <span class="name">修改名称</span>
                 </a>
               </li>
+
               <li>
-                <a class="__ga__resume_Deleteresume_001 wrap" data-resumeid="205117386" @click="gotoResumeTop">
+                <a class="__ga__resume_Deleteresume_001 wrap" data-resumeid="205117386" @click="doDeleteResume">
                   <img src="//img09.zhaopin.cn/2012/other/mobile/m/creatResumeIcon/resumeIndex_6.png" width="16" alt="" />
                   <span class="name">删除简历</span>
                 </a>
               </li>
 
               <li>
-                <a class="wrap" data-resumeid="205117386" @click="gotoResumeTop">
+                <a class="wrap" data-resumeid="205117386" @click="gotoResumeSetting">
                   <img src="//img09.zhaopin.cn/2012/other/mobile/m/creatResumeIcon/resumeIndex_7.png" width="16" alt="" />
                   <span class="name">隐私设置</span>
                 </a>
               </li>
               <li class="skinItem" style="display:none;">
-                <a class="wrap" resumeId="205117386" resumeVer="1" resumeNum="JM135509455R90250000000" @click="gotoResumeTop">
+                <a class="wrap" resumeId="205117386" resumeVer="1" resumeNum="JM135509455R90250000000" @click="todo">
                   <img src="//img09.zhaopin.cn/2012/other/mobile/m/creatResumeIcon/resumeSkin.png" width="16" alt="" />
                   <span class="name">简历皮肤</span>
                 </a>
@@ -82,15 +83,23 @@
         </div>
       </div>
     </section>
-    <div class="renameResumeWrap" style="display:none;">
-      <div style="background: #fff; color: #000;" id="popupPanel">
-        <ul style="width: 210px">
-          <li style="color: #1264ff; text-align: center;">选择默认简历</li>
-          <li class="forResumeLi cn" data-language="1">预览中文简历</li>
-          <li class="forResumeLi en" data-language="2">预览英文简历</li>
-          <li style="color: #1264ff; text-align: center;" onclick="closepopupPanel()">取消</li>
+    <div class="renameResumeWrap" v-show="isShowRenameResume">
+      <div class="renameResume" v-show="isShowRenameResume">
+        <h4>修改简历名称</h4>
+        <input type="text" v-model="title" class="renameResumeVal" autofocus="autofocus" maxlength="100">
+        <ul>
+          <li data-resumeid="205117386" @click="renameResume">确定</li>
+          <li @click="renameCancel" class="renameResumeClose">取消</li>
         </ul>
       </div>
+      <!--<div style="background: #fff; color: #000;" id="popupPanel">-->
+        <!--<ul style="width: 210px">-->
+          <!--<li style="color: #1264ff; text-align: center;">选择默认简历</li>-->
+          <!--<li class="forResumeLi cn" data-language="1">预览中文简历</li>-->
+          <!--<li class="forResumeLi en" data-language="2">预览英文简历</li>-->
+          <!--<li style="color: #1264ff; text-align: center;" onclick="closepopupPanel()">取消</li>-->
+        <!--</ul>-->
+      <!--</div>-->
     </div>
 
     <div class="V5popWrap beforeWrap">
@@ -153,21 +162,65 @@
     name: 'myResume',
     data: function() {
       return {
+        isShowRenameResume: false,
+        title: '',
       }
     },
     computed: {
       ...mapState([
         'showLoading',
-        'resume',
+        'userDetail',
       ])
     },
     methods: {
-      ...mapActions(['getPositionList']),
+      ...mapActions([]),
       gotoResumeTop() {
-        this.$toasted.show('暂未开发').goAway(2000)
+        this.$router.push({path: '/resumeTop'})
+      },
+      gotoResumeRefresh() {
+        // console.log(this.userDetail)
+        if (!this.userDetail || !this.userDetail.resumes || !this.userDetail.resumes[0]) {
+          return this.$dialog.toast({mes: '无数据', timeout: 2000})
+        }
+        const resumeId = this.userDetail.resumes[0].id
+        const resumeNumber = this.userDetail.resumes[0].number
+        this.$router.push({name: 'ResumeRefresh', params: {resumeId, resumeNumber}})
+      },
+      gotoResumeSetting() {
+        // console.log(this.userDetail)
+        if (!this.userDetail || !this.userDetail.resumes || !this.userDetail.resumes[0]) {
+          return this.$dialog.toast({mes: '未调后台接口', timeout: 2000})
+        }
+        const resumeId = this.userDetail.resumes[0].id
+        const resumeNumber = this.userDetail.resumes[0].number
+        this.$router.push({name: 'ResumeSetting', params: {resumeId, resumeNumber}})
+      },
+      doDeleteResume() {
+        this.$dialog.confirm({
+          mes: '确认删除简历？',
+          opts: () => {
+            this.$dialog.toast({mes: '你点了确定,但是我没有调后台', timeout: 2000});
+          }
+        });
+      },
+      doRenameResume() {
+        this.isShowRenameResume = true
+      },
+      renameResume() {
+        this.$dialog.toast({mes: '你点了确定,但是我没有调后台', timeout: 2000});
+        this.isShowRenameResume = false
+      },
+      renameCancel() {
+        this.isShowRenameResume = false
+      },
+      todo() {
+        this.$dialog.toast({mes: '暂未开发', timeout: 2000})
       }
     },
     mounted() {
+      if (this.userDetail && this.userDetail.resumes && this.userDetail.resumes[0]) {
+        this.title = this.userDetail.resumes[0].title
+      }
     },
     components: {
       Loading,
@@ -200,7 +253,6 @@
   .renameResume ul li{background:#42beff;}
   .myZhilianList li .name{width:80%;float:none;}
 
-  *简历样式2014-2-19*/
   .left { float: left; }
   .right { float: right; }
   /*简历样式2016-10-14*/

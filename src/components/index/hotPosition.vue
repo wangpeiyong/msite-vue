@@ -59,7 +59,7 @@
         this.$set(this.$store.state, key, !flag)
       },
       gotoDetail(item) {
-        this.$toasted.show('暂未开发').goAway(2000)
+        this.$dialog.toast({mes: '暂未开发', timeout: 2000})
       }
     },
     components: {}

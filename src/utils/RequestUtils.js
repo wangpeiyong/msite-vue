@@ -2,6 +2,7 @@ import request from './request'
 import log from './log'
 import cookie from 'js-cookie'
 import Vue from 'vue'
+import { Toast} from 'vue-ydui/dist/lib.rem/dialog';
 import {
   APP_ENV
 } from '../config/app'
@@ -12,7 +13,7 @@ function handle(result) {
     if (result.statusCode == 200) {
       return Promise.resolve(result.data)
     } else if (result.statusCode == 206) {
-      Vue.toasted.error('请重新登录').goAway(2000)
+      Toast({mes: '请重新登录', timeout: 2000, icon: 'error'})
       cookie.set('at', '', -1)
       cookie.set('rt', '', -1)
       setTimeout(()=> {
@@ -20,7 +21,7 @@ function handle(result) {
         window.location.reload()
       }, 2000)
     } else if (result.statusCode == 208) {
-      Vue.toasted.error('请重新登录').goAway(2000)
+      Toast({mes: '请重新登录', timeout: 2000, icon: 'error'})
       cookie.set('at', '', -1)
       cookie.set('rt', '', -1)
       setTimeout(()=> {

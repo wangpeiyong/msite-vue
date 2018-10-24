@@ -11,6 +11,7 @@ import JobHuntingTreasureDetail from '@/page/jobHuntingTreasure/jobHuntingTreasu
 import MyResume from '@/page/resume/myResume'
 import ResumeTop from '@/page/resume/resumeTop'
 import ResumeRefresh from '@/page/resume/resumeRefresh'
+import ResumeSetting from '@/page/resume/resumeSetting'
 import MyCollect from '@/page/position/myCollect'
 import JobStatistics from '@/page/jobStatistics'
 
@@ -77,6 +78,11 @@ export default new Router({
             path: '/resumeRefresh',
             name: 'ResumeRefresh',
             component: ResumeRefresh
+        },
+        {
+            path: '/resumeSetting',
+            name: 'ResumeSetting',
+            component: ResumeSetting
         },
         {
             path: '/myCollect',

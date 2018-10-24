@@ -42,7 +42,7 @@
         this.$router.push({path: 'city', query: {scrollLetter}})
       },
       todo() {
-        this.$toasted.show('暂未开发').goAway(2000)
+        this.$dialog.toast({mes: '暂未开发', timeout: 2000})
       },
       gotoHome() {
         this.$router.push({path: 'home'})

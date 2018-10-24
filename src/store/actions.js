@@ -2,10 +2,11 @@ import Vue from 'vue'
 import axios from 'axios'
 import RequestUtils from '../utils/RequestUtils'
 import * as types from './mutation-types.js'
+import {Toast} from "vue-ydui/dist/lib.rem/dialog";
 
 function handleError(msg) {
   console.error(msg)
-  Vue.toasted.error(msg).goAway(2000);
+  Toast({mes: msg, timeout: 2000, icon: 'error'})
   return
 }
 /* 异步操作 */

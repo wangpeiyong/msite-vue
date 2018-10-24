@@ -8,9 +8,11 @@ import i18n from './lang'
 import '@/styles/index.scss' // global css
 import * as filters from './filters' // 全局vue filter
 import MetaInfo from 'vue-meta-info'
-import Toasted from 'vue-toasted';
+import YDUI from 'vue-ydui';
+// import 'vue-ydui/dist/ydui.rem.css';
+import 'vue-ydui/dist/ydui.px.css';
 
-Vue.use(Toasted, {position: 'bottom-center'})
+Vue.use(YDUI);
 
 Vue.use(MetaInfo)
 // register global utility filters.

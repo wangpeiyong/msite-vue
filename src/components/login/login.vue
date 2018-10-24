@@ -102,7 +102,7 @@
           async doLogin() {
             cookie.set('at', '094d847ec9054e38a17424806cb7d9c2')
             cookie.set('rt', '475fdbe7e71143a5892432c06ac71987')
-            this.$toasted.success('模拟登陆成功').goAway(2000)
+            this.$dialog.toast({mes: '模拟登陆成功', timeout: 2000, icon: 'success'})
             this.$router.replace({path: '/'})
           }
         },
