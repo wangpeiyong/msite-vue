@@ -97,7 +97,9 @@
   .j_HotJobsIndustryList dd a:link, .j_HotJobsIndustryList dd a:visited {
     color: #000;
   }
-
+  .j_HotJobsIndustryList dd a.colorC{
+    color: #17a5ff;
+  }
   .j_HotJobsIndustryList dd a.colorC:link, .j_HotJobsIndustryList dd a.colorC:visited {
     color: #17a5ff;
   }
